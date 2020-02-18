@@ -12,7 +12,7 @@ direction of the work (how it fits with the whole, and the deliverables), and th
 principally focussed on tactical aspects of the current task at hand (block, method,
 class, etc.), as well as allowing useful discussion between the developers regarding
 different possible solutions and design approaches.
-------------------------------------------------------------------------------------------------------------------------------
+
 You are to develop a class that implements this interface, and also develop with the necessary addistional supporting classes in the Java package called beanbags. The operational correctness of the back-end system will be tested through this provided interface on submission.
 
 This implementor class must be a public class called Store. If it is not, then the front-end system will be unable to compile with your back-end solution, and the operational component of your mark will be 0. You will need to also write any other package members you deem appropriate to support this class and its functionality. All classes developed must reside in the beanbags package.
