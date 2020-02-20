@@ -1,12 +1,13 @@
 package beanbags;
+
 import java.io.IOException;
 
 /**
  * BeanBagStore interface. The no-argument constructor of a class
- * implementing this interface should initialise the BeanBagStore 
+ * implementing this interface should initialise the BeanBagStore
  * as an empty store with no initial bean bags contained within it.
- * 
- * @author Jonathan Fieldsend 
+ *
+ * @author Jonathan Fieldsend
  * @version 1.3
  */
 
@@ -16,26 +17,27 @@ public interface BeanBagStore
     /**
      * Method adds bean bags to the store with the arguments as bean bag details.
      * <p>
-     * The state of this BeanBagStore must be be unchanged if any exceptions are 
+     * The state of this BeanBagStore must be be unchanged if any exceptions are
      * thrown.
      *
      * @param num               number of bean bags added
      * @param manufacturer      bean bag manufacturer
      * @param name              bean bag name
-     * @param id                ID of bean bag 
+     * @param id                ID of bean bag
      * @param year              year of manufacture
      * @param month             month of manufacture
-     * @throws IllegalNumberOfBeanBagsAddedException   if the number to be added 
+     * @throws IllegalNumberOfBeanBagsAddedException   if the number to be added
      *                           is less than 1
      * @throws BeanBagMismatchException if the id already exists (as a current in
-     *                           stock bean bag, or one that has been previously 
-     *                           stocked in the store, but the other stored 
-     *                           elements (manufacturer, name and free text) do 
+     *                           stock bean bag, or one that has been previously
+     *                           stocked in the store, but the other stored
+     *                           elements (manufacturer, name and free text) do
      *                           not match the pre-existing version
-     * @throws IllegalIDException   if the ID is not a positive eight character 
+     * @throws IllegalIDException   if the ID is not a positive eight character
      *                           hexadecimal number
      * @throws InvalidMonthException    if the month is not in the range 1 to 12
      */
+
     void addBeanBags(int num, String manufacturer, String name,
     String id, short year, byte month)
     throws IllegalNumberOfBeanBagsAddedException, BeanBagMismatchException,
@@ -57,9 +59,9 @@ public interface BeanBagStore
      * @throws IllegalNumberOfBeanBagsAddedException   if the number to be added
      *                           is less than 1
      * @throws BeanBagMismatchException if the id already exists (as a current in
-     *                           stock bean bag, or one that has been previously 
-     *                           stocked in the store, but the other stored 
-     *                           elements (manufacturer, name and free text) do 
+     *                           stock bean bag, or one that has been previously
+     *                           stocked in the store, but the other stored
+     *                           elements (manufacturer, name and free text) do
      *                           not match the pre-existing version
      * @throws IllegalIDException   if the ID is not a positive eight character
      *                           hexadecimal number
@@ -79,7 +81,7 @@ public interface BeanBagStore
      * @param id                ID of bean bags
      * @param priceInPence      bean bag price in pence
      * @throws InvalidPriceException if the priceInPence < 1
-     * @throws BeanBagIDNotRecognisedException  if the ID is legal, but does not 
+     * @throws BeanBagIDNotRecognisedException  if the ID is legal, but does not
      *                          match any bag in (or previously in) stock
      * @throws IllegalIDException if the ID is not a positive eight character
      *                           hexadecimal number
@@ -99,13 +101,13 @@ public interface BeanBagStore
      * @throws BeanBagNotInStockException   if the bean bag has previously been in
      *                      stock, but is now out of stock
      * @throws InsufficientStockException   if the bean bag is in stock, but not
-     *                      enough are available (i.e. in stock and not reserved) 
+     *                      enough are available (i.e. in stock and not reserved)
      *                      to meet sale demand
-     * @throws IllegalNumberOfBeanBagsSoldException if an attempt is being made to 
+     * @throws IllegalNumberOfBeanBagsSoldException if an attempt is being made to
      *                      sell fewer than 1 bean bag
      * @throws PriceNotSetException if the bag is in stock, and there is sufficient
      *                      stock to meet demand, but the price has yet to be set
-     * @throws BeanBagIDNotRecognisedException  if the ID is legal, but does not 
+     * @throws BeanBagIDNotRecognisedException  if the ID is legal, but does not
      *                          match any bag in (or previously in) stock
      * @throws IllegalIDException   if the ID is not a positive eight character
      *                           hexadecimal number
@@ -123,7 +125,7 @@ public interface BeanBagStore
      *
      * @param num           number of bean bags to be reserved
      * @param id            ID of bean bags to be reserved
-     * @return              unique reservation number, i.e. one not currently live 
+     * @return              unique reservation number, i.e. one not currently live
      *                      in the system
      * @throws BeanBagNotInStockException   if the bean bag has previously been in
      *                      stock, but is now out of stock
@@ -133,7 +135,7 @@ public interface BeanBagStore
      *                      requested to reserve is fewer than 1
      * @throws PriceNotSetException if the bag is in stock, and there is sufficient
      *                      stock to meet demand, but the price has yet to be set
-     * @throws BeanBagIDNotRecognisedException  if the ID is legal, but does not 
+     * @throws BeanBagIDNotRecognisedException  if the ID is legal, but does not
      *                          match any bag in (or previously in) stock
      * @throws IllegalIDException   if the ID is not a positive eight character
      *                           hexadecimal number
@@ -143,7 +145,7 @@ public interface BeanBagStore
     PriceNotSetException, BeanBagIDNotRecognisedException, IllegalIDException;
 
     /**
-     * Method removes an existing reservation from the system due to a reservation 
+     * Method removes an existing reservation from the system due to a reservation
      * cancellation (rather than sale). The stock should therefore remain unchanged.
      * <p>
      * The state of this BeanBagStore must be be unchanged if any exceptions are
@@ -163,7 +165,7 @@ public interface BeanBagStore
      * The state of this BeanBagStore must be be unchanged if any exceptions are
      * thrown.
      *
-     * @param reservationNumber           unique reservation number used to find 
+     * @param reservationNumber           unique reservation number used to find
      *                                    beanbag(s) to be sold
      * @throws ReservationNumberNotRecognisedException  if the reservation number
      *                          does not match a current reservation in the system
@@ -196,7 +198,7 @@ public interface BeanBagStore
      *
      * @param id            ID of bean bags
      * @return              number of bean bags matching ID in stock
-     * @throws BeanBagIDNotRecognisedException  if the ID is legal, but does not 
+     * @throws BeanBagIDNotRecognisedException  if the ID is legal, but does not
      *                          match any bag in (or previously in) stock
      * @throws IllegalIDException   if the ID is not a positive eight character
      *                           hexadecimal number
@@ -209,7 +211,7 @@ public interface BeanBagStore
      * with the filename given in the argument.
      *
      * @param filename      location of the file to be saved
-     * @throws IOException  if there is a problem experienced when trying to save 
+     * @throws IOException  if there is a problem experienced when trying to save
      *                      the store contents to the file
      */
     void saveStoreContents(String filename) throws IOException;
@@ -222,7 +224,7 @@ public interface BeanBagStore
      * thrown.
      *
      * @param filename      location of the file to be loaded
-     * @throws IOException  if there is a problem experienced when trying to load 
+     * @throws IOException  if there is a problem experienced when trying to load
      *                      the store contents from the file
      * @throws ClassNotFoundException   if required class files cannot be found when
      *                      loading
@@ -256,7 +258,7 @@ public interface BeanBagStore
      *
      * @param id                 ID of bean bags
      * @return                   number bean bags sold by the store with matching ID
-     * @throws BeanBagIDNotRecognisedException  if the ID is legal, but does not 
+     * @throws BeanBagIDNotRecognisedException  if the ID is legal, but does not
      *                          match any bag in (or previously in) stock
      * @throws IllegalIDException   if the ID is not a positive eight character
      *                           hexadecimal number
@@ -274,7 +276,7 @@ public interface BeanBagStore
 
     /**
      * Method to return total price of bean bags sold by this BeanBagStore
-     * (in pence) with  matching ID (i.e. income that has been generated 
+     * (in pence) with  matching ID (i.e. income that has been generated
      * by these sales).
      * <p>
      * The state of this BeanBagStore must be be unchanged if any exceptions are
@@ -283,7 +285,7 @@ public interface BeanBagStore
      * @param id                ID of bean bags
      * @return                  total cost of bean bags sold (in pence) with
      *                          matching ID
-     * @throws BeanBagIDNotRecognisedException  if the ID is legal, but does not 
+     * @throws BeanBagIDNotRecognisedException  if the ID is legal, but does not
      *                          match any bag in (or previously in) stock
      * @throws IllegalIDException   if the ID is not a positive eight character
      *                           hexadecimal number
@@ -293,11 +295,11 @@ public interface BeanBagStore
 
     /**
      * Method to return the total price of reserved bean bags in this BeanBagStore
-     * (i.e. income that would be generated if all the reserved stock is sold 
+     * (i.e. income that would be generated if all the reserved stock is sold
      * to those holding the reservations).
      *
      * @return                  total price of reserved bean bags
-     */ 
+     */
     int getTotalPriceOfReservedBeanBags();
 
     /**
@@ -310,7 +312,7 @@ public interface BeanBagStore
      *
      * @param id                ID of bean bag
      * @return                  any free text details relating to the bean bag
-     * @throws BeanBagIDNotRecognisedException  if the ID is legal, but does not 
+     * @throws BeanBagIDNotRecognisedException  if the ID is legal, but does not
      *                          match any bag in (or previously in) stock
      * @throws IllegalIDException   if the ID is not a positive eight character
      *                           hexadecimal number
@@ -330,29 +332,28 @@ public interface BeanBagStore
      * be unaffected.
      */
     void resetSaleAndCostTracking();
-    
+
     /**
-     * Method replaces the ID of current stock matching the first argument with the 
-     * ID held in the second argument. To be used if there was e.g. a data entry 
+     * Method replaces the ID of current stock matching the first argument with the
+     * ID held in the second argument. To be used if there was e.g. a data entry
      * error on the ID initially entered. After the method has completed all stock
-     * which had the old ID should now have the replacement ID (including 
-     * reservations), and all trace of the old ID should be purged from the system 
-     * (e.g. tracking of previous sales that had the old ID should reflect the 
+     * which had the old ID should now have the replacement ID (including
+     * reservations), and all trace of the old ID should be purged from the system
+     * (e.g. tracking of previous sales that had the old ID should reflect the
      * replacement ID).
      * <p>
-     * If the replacement ID already exists in the system, this method will return 
+     * If the replacement ID already exists in the system, this method will return
      * an {@link IllegalIDException}.
-     * 
+     *
      * @param oldId             old ID of bean bags
      * @param replacementId     replacement ID of bean bags
-     * @throws BeanBagIDNotRecognisedException  if the oldId does not match any 
+     * @throws BeanBagIDNotRecognisedException  if the oldId does not match any
      *                          bag in (or previously in) stock
-     * @throws IllegalIDException   if either argument is not a positive eight 
-     *                          character hexadecimal number, or if the 
-     *                          replacementID is already in use in the store as 
+     * @throws IllegalIDException   if either argument is not a positive eight
+     *                          character hexadecimal number, or if the
+     *                          replacementID is already in use in the store as
      *                          an ID
      */
-    void replace(String oldId, String replacementId) 
+    void replace(String oldId, String replacementId)
     throws BeanBagIDNotRecognisedException, IllegalIDException;
 }
-

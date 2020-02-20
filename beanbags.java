@@ -1,4 +1,4 @@
-public class BeanBag
+public class beanbags
 {
   // Attributes for a bean bag:
   // -the manufacturer
@@ -8,12 +8,17 @@ public class BeanBag
   // -the year of manufacture
   // -the month of manufacture
   // -optional free text component
-  String manufacturer;
-  String name;
-  Float price;
-  String ID;
-  Int year_manufacture;
-  Int month_manufacture;
-  String text;
+
+  String manufacturer, name, text, id;
+  int num;
+  short year;
+  byte month;
+
+  public beanBag(int num, String manufacturer, String name,
+  String id, short year, byte month){
+    
+  }
+
+
 
 }
