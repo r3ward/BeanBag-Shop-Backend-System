@@ -1,14 +1,14 @@
 # O-O-Pair-Programming
-You are to develop a class that implements this interface, and also develop with the necessary addistional supporting classes in the Java package called beanbags. The operational correctness of the back-end system will be tested through this provided interface on submission.
+You are to develop a class that implements this interface, and also develop with the necessary additional supporting classes in the Java package called beanbags. The operational correctness of the back-end system will be tested through this provided interface on submission.
 
 This implementor class must be a public class called Store. If it is not, then the front-end system will be unable to compile with your back-end solution, and the operational component of your mark will be 0. You will need to also write any other package members you deem appropriate to support this class and its functionality. All classes developed must reside in the beanbags package.
 
 You should find the ObjectArrayList class useful when maintaining lists of objects in your solution, especially given the package import restrictions of the assignment detailed later. Note that as the ObjectArrayList stores object references declared as the Object type, you will need to employ casting when using its contents.
 
-Specs - 
+Specs -
 
-Attributes for a bean bag: 
--the manufacturer 
+Attributes for a bean bag:
+-the manufacturer
 -the bean bag name
 -the price
 -an ID number (an eight character string holding a positive hexadecimal number)
