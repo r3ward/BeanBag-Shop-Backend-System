@@ -10,19 +10,19 @@ public class BeanBags //may need to start with a capital letter??????
   // -optional free text component
 
   String manufacturer, name, text, id;
-  int num;    // price
+  int num;
   short year;
   byte month;
 
   public beanBag(int initialNum, String initialManufacturer, String initialName,
   String initialId, short initialYear, byte initialMonth){
-    
-    num = initialNum
-    manufacturer = initialManufacturer
-    name = initialName
-    id = initialId
-    year = initialYear
-    month = initialMonth
+
+    num = initialNum;
+    manufacturer = initialManufacturer;
+    name = initialName;
+    id = initialId;
+    year = initialYear;
+    month = initialMonth;
   }
   /**
      * This is a copy constructor. It initializes the fields of the object being created to the same
@@ -31,7 +31,7 @@ public class BeanBags //may need to start with a capital letter??????
      * @param beanBagObject The object being copied.
      */
 
-  public beanBag(BeanBags beanBagObject)
+  public beanBag(beanbags beanBagObject)
     {
         if (beanBagObject != null)
         {
@@ -45,31 +45,37 @@ public class BeanBags //may need to start with a capital letter??????
     }
 
   public String getManufacturer(){
-    return manufacturer
+    return manufacturer;
   }
 
+  // continue creating to access other attributres of the object.
+  // also create functions to modify the attributes.
+
   public int getNum():{
-    return num
+    return num;
   }
 
   public String getName(){
-    return name
+    return name;
   }
 
   public String getId(){
-    return id
+    return id;
   }
 
   public short getYear(){
-    return year
+    return year;
   }
 
   public byte getMonth(){
-    return month
+    return month;
   }
 
   public void setPrice(int newNum) // MAY NOT BE NEEDED
     {
         num = newNum;
     }
+}
+
+
 }
