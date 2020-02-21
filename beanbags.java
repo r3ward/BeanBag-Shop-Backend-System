@@ -76,6 +76,3 @@ public class BeanBags //may need to start with a capital letter??????
         num = newNum;
     }
 }
-
-
-}
