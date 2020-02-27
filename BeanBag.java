@@ -3,12 +3,17 @@ package inheritance;
 public class BeanBag //may need to start with a capital letter??????
 {
   public static void main(String[] args){
-    String manufacturer, name, text, id;
-    int num;
-    int year;
-    int month;
+    private String manufacturer, name, text, id;
+    private int num, year, month;
+    private boolean reserved;
+
+    // generate hex by using hex conversion function with AI numbers.
+    // Integer.toHexString(value);
+
       // Following statement would create an object testBag
     BeanBag testBag = new BeanBag(1200, "Nike", "Specialé", "1234", 20, 01);
+    BeanBag[] beanBagArray = new BeanBag[]
+
     manufacturer = testBag.getManufacturer();
     name = testBag.getName();
     id = testBag.getId();

@@ -1,4 +1,6 @@
-public class BeanBags //may need to start with a capital letter??????
+package inheritance;
+
+public class BeanBag //may need to start with a capital letter??????
 {
   // Attributes for a bean bag:
   // -the manufacturer
@@ -14,7 +16,7 @@ public class BeanBags //may need to start with a capital letter??????
   short year;
   byte month;
 
-  public beanBag(int initialNum, String initialManufacturer, String initialName,
+  public BeanBag(int initialNum, String initialManufacturer, String initialName,
   String initialId, short initialYear, byte initialMonth){
 
     num = initialNum;
@@ -31,7 +33,7 @@ public class BeanBags //may need to start with a capital letter??????
      * @param beanBagObject The object being copied.
      */
 
-  public beanBag(beanbags beanBagObject)
+  public BeanBag(BeanBag beanBagObject)
     {
         if (beanBagObject != null)
         {
@@ -51,7 +53,7 @@ public class BeanBags //may need to start with a capital letter??????
   // continue creating to access other attributres of the object.
   // also create functions to modify the attributes.
 
-  public int getNum():{
+  public int getNum(){
     return num;
   }
 
@@ -75,4 +77,11 @@ public class BeanBags //may need to start with a capital letter??????
     {
         num = newNum;
     }
+
+  public BeanBag copy()
+    {
+        return new BeanBag(this);
+    }
+
+
 }
