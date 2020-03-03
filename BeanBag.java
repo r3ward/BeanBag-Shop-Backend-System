@@ -1,5 +1,3 @@
-package inheritance;
-
 public class BeanBag //may need to start with a capital letter??????
 {
     public static void main(String args[]){
