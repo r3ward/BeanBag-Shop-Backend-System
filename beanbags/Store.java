@@ -12,25 +12,43 @@ import java.io.IOException;
  * @author Jonathan Fieldsend 
  * @version 1.1
  */
-public class BadStore implements BeanBagStore
+public class Store implements BeanBagStore
 {
  
     public void addBeanBags(int num, String manufacturer, String name, 
     String id, short year, byte month)
     throws IllegalNumberOfBeanBagsAddedException, BeanBagMismatchException,
-    IllegalIDException, InvalidMonthException { }
+    IllegalIDException, InvalidMonthException {
+
+        // create bean bag using constructor in BeanBag.java class.
+        // Do we add this to anywhere?? ObjectArrayList.java
+
+        // instantiate 
+     }
 
     public void addBeanBags(int num, String manufacturer, String name, 
     String id, short year, byte month, String information)
     throws IllegalNumberOfBeanBagsAddedException, BeanBagMismatchException,
-    IllegalIDException, InvalidMonthException { }
+    IllegalIDException, InvalidMonthException { 
+        
+        // create a bean bag using constructor BUT include additional information.
+
+    }
 
     public void setBeanBagPrice(String id, int priceInPence) 
-    throws InvalidPriceException, BeanBagIDNotRecognisedException, IllegalIDException { }
+    throws InvalidPriceException, BeanBagIDNotRecognisedException, IllegalIDException { 
+
+        // modify the price of an existing bean bag.
+
+    }
 
     public void sellBeanBags(int num, String id) throws BeanBagNotInStockException,
     InsufficientStockException, IllegalNumberOfBeanBagsSoldException,
-    PriceNotSetException, BeanBagIDNotRecognisedException, IllegalIDException { }
+    PriceNotSetException, BeanBagIDNotRecognisedException, IllegalIDException { 
+
+        //
+
+    }
 
     public int reserveBeanBags(int num, String id) throws BeanBagNotInStockException,
     InsufficientStockException, IllegalNumberOfBeanBagsReservedException,
