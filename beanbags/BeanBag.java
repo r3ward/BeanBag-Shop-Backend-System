@@ -5,8 +5,10 @@ public class BeanBag //may need to start with a capital letter??????
       // private int num, year, month;
       // private boolean reserved;
 
-      String manufacturer, name, text, id;
-      int num, year, month;
+      String manufacturer, name, text, id;  //optional text may need to be added into beanbag constructor parameter.
+      int num;
+      short year;
+      byte month;
       boolean reserved;
 
       // generate hex by using hex conversion function with AI numbers.
