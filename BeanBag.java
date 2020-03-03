@@ -3,15 +3,19 @@ package inheritance;
 public class BeanBag //may need to start with a capital letter??????
 {
     public static void main(String args[]){
-      private String manufacturer, name, text, id;
-      private int num, year, month;
-      private boolean reserved;
+      // private String manufacturer, name, text, id;
+      // private int num, year, month;
+      // private boolean reserved;
+
+      String manufacturer, name, text, id;
+      int num, year, month;
+      boolean reserved;
 
       // generate hex by using hex conversion function with AI numbers.
       // Integer.toHexString(value);
       // Following statement would create an object testBag
       BeanBag testBag = new BeanBag(1200, "Nike", "Specialé", "1234", 20, 01);
-      BeanBag[] beanBagArray = new BeanBag[]
+      // BeanBag[] beanBagArray = new BeanBag[];
 
       manufacturer = testBag.getManufacturer();
       name = testBag.getName();
@@ -27,7 +31,7 @@ public class BeanBag //may need to start with a capital letter??????
       System.out.println(Integer.toString(year));
       System.out.println(Integer.toString(month));
 
-
+}
 
   // Attributes for a bean bag:
   // -the manufacturer
@@ -42,17 +46,17 @@ public class BeanBag //may need to start with a capital letter??????
   int num;
   int year;
   int month;
-
-  public BeanBag(int initialNum, String initialManufacturer, String initialName,
-  String initialId, int initialYear, int initialMonth){
-
-    num = initialNum;
-    manufacturer = initialManufacturer;
-    name = initialName;
-    id = initialId;
-    year = initialYear;
-    month = initialMonth;
-  }
+  //
+  // public BeanBag(int initialNum, String initialManufacturer, String initialName,
+  // String initialId, int initialYear, int initialMonth){
+  //
+  //   num = initialNum;
+  //   manufacturer = initialManufacturer;
+  //   name = initialName;
+  //   id = initialId;
+  //   year = initialYear;
+  //   month = initialMonth;
+  // }
   /**
      * This is a copy constructor. It initializes the fields of the object being created to the same
      * values as the fields in the object passed as an argument.
@@ -113,5 +117,5 @@ public class BeanBag //may need to start with a capital letter??????
         return reserved;
     }
 
-  }
+
 }
