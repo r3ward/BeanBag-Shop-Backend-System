@@ -1,6 +1,5 @@
 public class BeanBag //may need to start with a capital letter??????
 {
-      id = testBag.getId();
     
     // // private String manufacturer, name, text, id;
     // // private int num, year, month;
