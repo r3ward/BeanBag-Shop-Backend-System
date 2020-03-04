@@ -1,37 +1,38 @@
 public class BeanBag //may need to start with a capital letter??????
 {
-    public static void main(String args[]){
-      // private String manufacturer, name, text, id;
-      // private int num, year, month;
-      // private boolean reserved;
-
-      String manufacturer, name, text, id;  //optional text may need to be added into beanbag constructor parameter.
-      int num;
-      short year;
-      byte month;
-      boolean reserved;
-
-      // generate hex by using hex conversion function with AI numbers.
-      // Integer.toHexString(value);
-      // Following statement would create an object testBag
-      BeanBag testBag = new BeanBag(1200, "Nike", "Specialé", "1234", 20, 01);
-      BeanBag[] beanBagArray = new BeanBag[6];
-
-      manufacturer = testBag.getManufacturer();
-      name = testBag.getName();
       id = testBag.getId();
-      num = testBag.getNum();
-      year = testBag.getYear();
-      month = testBag.getMonth();
+    
+    // // private String manufacturer, name, text, id;
+    // // private int num, year, month;
+    // // private boolean reserved;
 
-      System.out.println(manufacturer);
-      System.out.println(name);
-      System.out.println(id);
-      System.out.println(Integer.toString(num));
-      System.out.println(Integer.toString(year));
-      System.out.println(Integer.toString(month));
+    // String manufacturer, name, text, id;  //optional text may need to be added into beanbag constructor parameter.
+    // int num;
+    // short year;
+    // byte month;
+    // boolean reserved;
 
-    }
+    // // generate hex by using hex conversion function with AI numbers.
+    // // Integer.toHexString(value);
+    // // Following statement would create an object testBag
+    // BeanBag testBag = new BeanBag(1200, "Nike", "Specialé", "1234", 20, 01);
+    // BeanBag[] beanBagArray = new BeanBag[6];
+
+    // manufacturer = testBag.getManufacturer();
+    // name = testBag.getName();
+    // id = testBag.getId();
+    // num = testBag.getNum();
+    // year = testBag.getYear();
+    // month = testBag.getMonth();
+
+    // System.out.println(manufacturer);
+    // System.out.println(name);
+    // System.out.println(id);
+    // System.out.println(Integer.toString(num));
+    // System.out.println(Integer.toString(year));
+    // System.out.println(Integer.toString(month));
+
+    
 
   // Attributes for a bean bag:
   // -the manufacturer
@@ -42,13 +43,13 @@ public class BeanBag //may need to start with a capital letter??????
   // -the month of manufacture
   // -optional free text component
 
-  String manufacturer, name, text, id;
-  int num;
-  int year;
-  int month;
-  //
+  public String manufacturer, name, text, id;
+  public int num;
+  public short year;
+  public byte month;
+  
   public BeanBag(int initialNum, String initialManufacturer, String initialName,
-  String initialId, int initialYear, int initialMonth){
+  String initialId, short initialYear, byte initialMonth){
   
     num = initialNum;
     manufacturer = initialManufacturer;

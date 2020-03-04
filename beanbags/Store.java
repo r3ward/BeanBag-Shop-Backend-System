@@ -14,14 +14,53 @@ import java.io.IOException;
  */
 public class Store implements BeanBagStore
 {
- 
-    public void addBeanBags(int num, String manufacturer, String name, 
+    public static void main(String[] args) {
+        //BeanBag testBag = new BeanBag(1200, "Nike", "Specialé", "1234", (short)20, (byte)01);
+        //beanbags.ObjectArrayList.add(testBag);
+        addBeanBags(1200, "Nike", "Specialé", "1234", (short)20, (byte)01);
+    }
+    // remember to remove static - should be 'public void addbeanbags(...)'
+    public static void addBeanBags(int num, String manufacturer, String name, 
     String id, short year, byte month)
     throws IllegalNumberOfBeanBagsAddedException, BeanBagMismatchException,
     IllegalIDException, InvalidMonthException {
 
+        try{
+            BeanBag testBag = new BeanBag(num, manufacturer, name, id, year, month);
+            // BeanBag testBag = new BeanBag(1200, "Nike", "Specialé", "1234", (short)20, (byte)01);
+            beanbags.ObjectArrayList.add(testBag);
+        }catch(IllegalNumberOfBeanBagsAddedException e)
+        {
+            // throw new IllegalNumberOfBeanBagsAddedException
+            System.out.println(e.getMessage());
+        }catch(BeanBagMismatchException e)
+        {
+            System.out.println(e.getMessage());
+        }catch(IllegalIDException e)
+        {
+            System.out.println(e.getMessage());
+        }catch(InvalidMonthException e)
+        {
+            System.out.println(e.getMessage());
+        }
+
+        // manufacturer = testBag.getManufacturer();
+        // name = testBag.getName();
+        // id = testBag.getId();
+        // num = testBag.getNum();
+        // year = testBag.getYear();
+        // month = testBag.getMonth();
+
+        // System.out.println(manufacturer);
+        // System.out.println(name);
+        // System.out.println(id);
+        // System.out.println(Integer.toString(num));
+        // System.out.println(Integer.toString(year));
+        // System.out.println(Integer.toString(month));
+
+
         // create object and add it to ObjectArrayList.java
-     }
+    }
 
     public void addBeanBags(int num, String manufacturer, String name, 
     String id, short year, byte month, String information)
@@ -36,6 +75,7 @@ public class Store implements BeanBagStore
     throws InvalidPriceException, BeanBagIDNotRecognisedException, IllegalIDException { 
 
         // modify the price of an existing bean bag.
+        // change num value for the bean bag.
 
     }
 
