@@ -14,6 +14,10 @@ import java.io.IOException;
  */
 public class Store implements BeanBagStore
 {
+    static ObjectArrayList currentStock = new ObjectArrayList();
+    static ObjectArrayList soldStock = new ObjectArrayList();
+    static ObjectArrayList reserveStock = new ObjectArrayList();
+
     public static void main(String[] args) {
         //BeanBag testBag = new BeanBag(1200, "Nike", "Specialé", "1234", (short)20, (byte)01);
         //beanbags.ObjectArrayList.add(testBag);
@@ -25,39 +29,39 @@ public class Store implements BeanBagStore
     throws IllegalNumberOfBeanBagsAddedException, BeanBagMismatchException,
     IllegalIDException, InvalidMonthException {
 
-        try{
-            BeanBag testBag = new BeanBag(num, manufacturer, name, id, year, month);
-            // BeanBag testBag = new BeanBag(1200, "Nike", "Specialé", "1234", (short)20, (byte)01);
-            beanbags.ObjectArrayList.add(testBag);
-        }catch(IllegalNumberOfBeanBagsAddedException e)
+        if (num<1)
         {
-            // throw new IllegalNumberOfBeanBagsAddedException
-            System.out.println(e.getMessage());
-        }catch(BeanBagMismatchException e)
+            throw new IllegalNumberOfBeanBagsAddedException("Beanbags quantity must have a positive value!");
+        }
+        if (id.length() > 8)
         {
-            System.out.println(e.getMessage());
-        }catch(IllegalIDException e)
+            throw new IllegalIDException("ID is too long, 8 characters maximum!");
+        }
+        if (month < 1 || month > 12)
         {
-            System.out.println(e.getMessage());
-        }catch(InvalidMonthException e)
-        {
-            System.out.println(e.getMessage());
+            throw new InvalidMonthException("Month must be less than or equal to 12 or greater than 0!");
         }
 
-        // manufacturer = testBag.getManufacturer();
-        // name = testBag.getName();
-        // id = testBag.getId();
-        // num = testBag.getNum();
-        // year = testBag.getYear();
-        // month = testBag.getMonth();
+        // check if bean bag is currently already in list
 
-        // System.out.println(manufacturer);
-        // System.out.println(name);
-        // System.out.println(id);
-        // System.out.println(Integer.toString(num));
-        // System.out.println(Integer.toString(year));
-        // System.out.println(Integer.toString(month));
+        boolean beanbagExist = false;
+        for (int i=0; i < currentStock.size(); i++){
+            // for every item in stock
+            beanBag item = currentStock.get(i);
+            if (id == item.getId()){ // same id = same manufacturer, name, maybe price??????
+                if (manufacturer == item.getManufacturer() && name == item.getName()){ //check if current beanBag exists in the stock
+                    beanbagExist = true;
+                }
+                else{
+                    throw new BeanBagMismatchException("The ID does not match information entered.");
+                }
+            }
+        }
 
+        if (beanbagExist == false){
+            BeanBag testBag = new BeanBag(num, manufacturer, name, id, year, month);
+            beanbags.ObjectArrayList.add(testBag);
+        }
 
         // create object and add it to ObjectArrayList.java
     }
@@ -69,6 +73,40 @@ public class Store implements BeanBagStore
         
         // create object and add it to ObjectArrayList.java BUT include additional information.
 
+        if (num<1)
+        {
+            throw new IllegalNumberOfBeanBagsAddedException("Beanbags quantity must have a positive value!");
+        }
+        if (id.length() > 8)
+        {
+            throw new IllegalIDException("ID is too long, 8 characters maximum!");
+        }
+        if (month < 1 || month > 12)
+        {
+            throw new InvalidMonthException("Month must be less than or equal to 12 or greater than 0!");
+        }
+
+        // check if bean bag is currently already in list
+
+        boolean beanbagExist = false;
+        for (int i=0; i < currentStock.size(); i++){
+            // for every item in stock
+            beanBag item = currentStock.get(i);
+            if (id == item.getId()){ // same id = same manufacturer, name, maybe price??????
+                if (manufacturer == item.getManufacturer() && name == item.getName()){ //check if current beanBag exists in the stock
+                    beanbagExist = true;
+                }
+                else{
+                    throw new BeanBagMismatchException("The ID does not match information entered.");
+                }
+            }
+        }
+        if (beanbagExist == false){
+            BeanBag testBag = new BeanBag(num, manufacturer, name, id, year, month, information);
+            beanbags.currentStock.add(testBag);
+        }
+
+
     }
 
     public void setBeanBagPrice(String id, int priceInPence) 
@@ -76,6 +114,28 @@ public class Store implements BeanBagStore
 
         // modify the price of an existing bean bag.
         // change num value for the bean bag.
+        boolean beanbagFound = false;
+        for (int i=0; i < currentStock.size(); i++){
+            // for every item in stock
+            beanBag item = currentStock.get(i);
+            if (id == item.getId()){
+                item.setPrice(priceInPence);
+                beanbagFound = true;
+            }
+        }
+
+        if (beanbagFound = false){
+            throw new BeanBagIDNotRecognisedException("The ID does not match any bean bag.");
+        }
+        
+        if (priceInPence < 1){
+            throw new InvalidPriceException("Price is too low!");
+        }
+        
+        if (id.length() > 8)
+        {
+            throw new IllegalIDException("ID is too long, 8 characters maximum!");
+        }
 
     }
 
@@ -84,6 +144,35 @@ public class Store implements BeanBagStore
     PriceNotSetException, BeanBagIDNotRecognisedException, IllegalIDException { 
 
         // remove bean bag from ObjectArrayList.java
+        boolean beanbagFound = false;
+        for (int i=0; i < currentStock.size(); i++){
+            // for every item in stock
+            beanBag item = currentStock.get(i);
+            if (id == item.getId() && num == item.getNum()){
+                currentStock.remove(item);
+                beanbagFound = true;
+                soldStock.add(item);
+                break;
+            }
+        }
+        if (beanbagFound = false){
+            throw new BeanBagIDNotRecognisedException("The ID does not match any bean bag.");
+        }
+        if (beanbagFound = false){
+            throw new BeanBagNotInStockException("The ID does not match any bean bag.");
+        }
+        if (beanbagFound = false){
+            throw new InsufficientStockException("The ID does not match any bean bag.");
+        }
+        if (beanbagFound = false){
+            throw new IllegalNumberOfBeanBagsSoldException("The ID does not match any bean bag.");
+        }
+        if (beanbagFound = false){
+            throw new PriceNotSetException("The ID does not match any bean bag.");
+        }
+        if (beanbagFound = false){
+            throw new BeanBagIDNotRecognisedException("The ID does not match any bean bag.");
+        }
 
     }
 
@@ -93,7 +182,7 @@ public class Store implements BeanBagStore
 
     public void unreserveBeanBags(int reservationNumber)
     throws ReservationNumberNotRecognisedException { 
-
+        // remove beanbag from the reserved bean bag list
         // change boolean reserve value to false for that reservation number.
 
     }

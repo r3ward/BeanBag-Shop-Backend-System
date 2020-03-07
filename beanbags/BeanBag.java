@@ -110,9 +110,9 @@ public class BeanBag //may need to start with a capital letter??????
 
   public void setPrice(int newNum) // MAY NOT BE NEEDED
   {
-    num = newNum;
+    this.num = newNum;
   }
-  
+
 
   public BeanBag copy(){
     return new BeanBag(this);
