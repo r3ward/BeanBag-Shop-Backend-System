@@ -1,54 +1,17 @@
-public class BeanBag //may need to start with a capital letter??????
+package beanbags;
+
+import java.io.Serializable;
+
+public class BeanBag implements Serializable
 {
-    
-    // // private String manufacturer, name, text, id;
-    // // private int num, year, month;
-    // // private boolean reserved;
-
-    // String manufacturer, name, text, id;  //optional text may need to be added into beanbag constructor parameter.
-    // int num;
-    // short year;
-    // byte month;
-    // boolean reserved;
-
-    // // generate hex by using hex conversion function with AI numbers.
-    // // Integer.toHexString(value);
-    // // Following statement would create an object testBag
-    // BeanBag testBag = new BeanBag(1200, "Nike", "Specialé", "1234", 20, 01);
-    // BeanBag[] beanBagArray = new BeanBag[6];
-
-    // manufacturer = testBag.getManufacturer();
-    // name = testBag.getName();
-    // id = testBag.getId();
-    // num = testBag.getNum();
-    // year = testBag.getYear();
-    // month = testBag.getMonth();
-
-    // System.out.println(manufacturer);
-    // System.out.println(name);
-    // System.out.println(id);
-    // System.out.println(Integer.toString(num));
-    // System.out.println(Integer.toString(year));
-    // System.out.println(Integer.toString(month));
-
-    
-
-  // Attributes for a bean bag:
-  // -the manufacturer
-  // -the bean bag name
-  // -the price
-  // -an ID number (an eight character string holding a positive hexadecimal number)
-  // -the year of manufacture
-  // -the month of manufacture
-  // -optional free text component
-
+  private static final long serialVersionUID = 1L;
   public String manufacturer, name, text, id;
-  public int num;
+  public int num, price, reservationNumber;
   public short year;
   public byte month;
   
   public BeanBag(int initialNum, String initialManufacturer, String initialName,
-  String initialId, short initialYear, byte initialMonth){
+  String initialId, short initialYear, byte initialMonth, String initialText){
   
     num = initialNum;
     manufacturer = initialManufacturer;
@@ -56,6 +19,9 @@ public class BeanBag //may need to start with a capital letter??????
     id = initialId;
     year = initialYear;
     month = initialMonth;
+    text = initialText;
+    price = 0;
+    reservationNumber = 0;
   }
   /**
      * This is a copy constructor. It initializes the fields of the object being created to the same
@@ -74,6 +40,8 @@ public class BeanBag //may need to start with a capital letter??????
             id = beanBagObject.id;
             year = beanBagObject.year;
             month = beanBagObject.month;
+            price = beanBagObject.price;
+            reservationNumber = beanBagObject.reservationNumber;
         }
     }
 
@@ -104,19 +72,41 @@ public class BeanBag //may need to start with a capital letter??????
     return month;
   }
 
+  public String getText(){
+    return text;
+  }
+
   // public boolean getReservationStatus(){
   //   return reserved;
   // }
 
-  public void setPrice(int newNum) // MAY NOT BE NEEDED
+  public void setPrice(int newPrice) // MAY NOT BE NEEDED
   {
+    this.price = newPrice;
+  }
+
+  public void setNum(int newNum){
     this.num = newNum;
   }
 
+  public int getPrice(){
+    return price;
+  }
+
+  public void setReservation(int newReservation){
+      this.reservationNumber = newReservation;
+  }
+
+  public void setId(String newId){
+      this.id = newId;
+  }
+
+  public int getReservation(){
+    return reservationNumber;
+  }
 
   public BeanBag copy(){
     return new BeanBag(this);
   }
-
-
+ 
 }

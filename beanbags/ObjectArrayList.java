@@ -35,8 +35,6 @@ public class ObjectArrayList implements Serializable
             this.resizeArray();
         this.array[elementsUsed] = o;
         this.elementsUsed++;
-        System.out.println(Arrays.toString(this.array));
-        // ADDED BY US
 
     }
 
